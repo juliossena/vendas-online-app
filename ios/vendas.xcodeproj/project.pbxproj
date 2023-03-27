@@ -14,6 +14,7 @@
 		0EFDCD5029CF4FF2005BDB5A /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDCD4C29CF4FF2005BDB5A /* Poppins-Light.ttf */; };
 		0EFDCD5129CF4FF2005BDB5A /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDCD4D29CF4FF2005BDB5A /* Poppins-Italic.ttf */; };
 		0EFDCD5429D0FF7B005BDB5A /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDCD5329D0FF7B005BDB5A /* Poppins-SemiBold.ttf */; };
+		0EFDCD5A29D1315A005BDB5A /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0EFDCD5929D1315A005BDB5A /* icomoon.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -45,6 +46,8 @@
 		0EFDCD4D29CF4FF2005BDB5A /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Italic.ttf"; path = "../../../Downloads/Poppins/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		0EFDCD5229D0FF6F005BDB5A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		0EFDCD5329D0FF7B005BDB5A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../Downloads/Poppins 2/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		0EFDCD5829D13151005BDB5A /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		0EFDCD5929D1315A005BDB5A /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = "../../../Downloads/icomoon (1)/fonts/icomoon.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* vendas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vendas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = vendas/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = vendas/AppDelegate.mm; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		0EFDCD4529CF4FCD005BDB5A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0EFDCD5829D13151005BDB5A /* icomoon.ttf */,
 				0EFDCD5229D0FF6F005BDB5A /* Poppins-SemiBold.ttf */,
 				0EFDCD4729CF4FDD005BDB5A /* Poppins-Bold.ttf */,
 				0EFDCD4629CF4FDD005BDB5A /* Poppins-Italic.ttf */,
@@ -144,6 +148,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0EFDCD5929D1315A005BDB5A /* icomoon.ttf */,
 				0EFDCD5329D0FF7B005BDB5A /* Poppins-SemiBold.ttf */,
 				0EFDCD4A29CF4FF2005BDB5A /* Poppins-Bold.ttf */,
 				0EFDCD4D29CF4FF2005BDB5A /* Poppins-Italic.ttf */,
@@ -275,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EFDCD5A29D1315A005BDB5A /* icomoon.ttf in Resources */,
 				0EFDCD5429D0FF7B005BDB5A /* Poppins-SemiBold.ttf in Resources */,
 				0EFDCD4E29CF4FF2005BDB5A /* Poppins-Bold.ttf in Resources */,
 				0EFDCD4F29CF4FF2005BDB5A /* Poppins-Regular.ttf in Resources */,

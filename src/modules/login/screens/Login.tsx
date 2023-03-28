@@ -6,9 +6,10 @@ import { theme } from '../../../shared/themes/theme';
 import { ContainerLogin, Imagelogo } from '../styles/login.style';
 
 const Login = () => {
-  const handleOnPress = () => {
+  const handleOnPress = async () => {
     console.log('clicou');
   };
+
   return (
     <View>
       <ContainerLogin>

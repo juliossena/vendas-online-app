@@ -1,9 +1,11 @@
+import { removeSpecialCharacters } from './characters';
+
 export const insertMaskInCpf = (cpf: string) => {
   return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
 };
 
 export function validateCpf(cpf: string): boolean {
-  const strCPF = cpf.replace(/\D/g, '');
+  const strCPF = removeSpecialCharacters(cpf);
   let sum;
   let rest;
   sum = 0;

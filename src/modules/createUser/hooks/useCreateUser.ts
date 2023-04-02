@@ -5,6 +5,9 @@ import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native/typ
 import { MethodEnum } from '../../../enums/methods.enum';
 import { URL_USER } from '../../../shared/constants/urls';
 import { MenuUrl } from '../../../shared/enums/MenuUrl.enum';
+import { validateCpf } from '../../../shared/functions/cpf';
+import { validateEmail } from '../../../shared/functions/email';
+import { validatePhone } from '../../../shared/functions/phone';
 import { useRequest } from '../../../shared/hooks/useRequest';
 import { CreateUserType } from '../../../shared/types/createUserType';
 
@@ -24,9 +27,9 @@ export const useCreateUser = () => {
   useEffect(() => {
     if (
       createUser.name !== '' &&
-      createUser.phone !== '' &&
-      createUser.email !== '' &&
-      createUser.cpf !== '' &&
+      validatePhone(createUser.phone) &&
+      validateEmail(createUser.email) &&
+      validateCpf(createUser.cpf) &&
       createUser.password !== '' &&
       createUser.password === createUser.confirmPassword
     ) {

@@ -40,6 +40,13 @@ const TabNavigation = () => {
         tabBarIcon: ({ color }) => renderTabBarIcon(color, route),
         tabBarActiveTintColor: theme.colors.mainTheme.primary,
         tabBarInactiveTintColor: theme.colors.grayTheme.gray80,
+        tabBarLabelStyle: {
+          marginBottom: 8,
+        },
+        tabBarStyle: {
+          height: 52,
+          padding: 8,
+        },
       })}
     >
       <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />

@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import Cart from './modules/cart';
 import CreateUser from './modules/createUser';
 import Home from './modules/home';
 import Login from './modules/login';
@@ -21,12 +22,16 @@ const TabNavigation = () => {
     let iconName: string;
 
     switch (route.name) {
-      case 'Home':
+      case MenuUrl.HOME:
         iconName = 'home';
         break;
-      case 'Orders':
+      case MenuUrl.ORDER:
+        iconName = 'books';
+        break;
+      case MenuUrl.CART:
         iconName = 'cart';
         break;
+      case MenuUrl.PROFILE:
       default:
         iconName = 'profile';
         break;
@@ -51,6 +56,11 @@ const TabNavigation = () => {
       })}
     >
       <Tab.Screen name={MenuUrl.HOME} component={Home} options={{ headerShown: false }} />
+      <Tab.Screen
+        name={MenuUrl.CART}
+        component={Cart}
+        options={{ title: 'Carrinho', headerShown: false }}
+      />
       <Tab.Screen
         name={MenuUrl.ORDER}
         component={Orders}

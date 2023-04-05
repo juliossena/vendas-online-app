@@ -6,4 +6,5 @@ export enum MenuUrl {
   ORDER = 'Order',
   PROFILE = 'Profile',
   PRODUCT = 'Product',
+  CART = 'Cart',
 }

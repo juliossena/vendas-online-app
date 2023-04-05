@@ -6,6 +6,7 @@ import CreateUser from './modules/createUser';
 import Home from './modules/home';
 import Login from './modules/login';
 import Orders from './modules/orders';
+import Product from './modules/product';
 import Profile from './modules/profile';
 import Splash from './modules/splash';
 import { Icon } from './shared/components/icon/Icon';
@@ -49,14 +50,14 @@ const TabNavigation = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Tab.Screen name={MenuUrl.HOME} component={Home} options={{ headerShown: false }} />
       <Tab.Screen
-        name="Orders"
+        name={MenuUrl.ORDER}
         component={Orders}
         options={{ title: 'Pedidos', headerShown: false }}
       />
       <Tab.Screen
-        name="Profile"
+        name={MenuUrl.PROFILE}
         component={Profile}
         options={{ title: 'Perfil', headerShown: false }}
       />
@@ -70,6 +71,7 @@ const Navigation = () => {
       <Stack.Navigator>
         <Stack.Screen name={MenuUrl.SPLASH} component={Splash} options={{ headerShown: false }} />
         <Stack.Screen name={MenuUrl.LOGIN} component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name={MenuUrl.PRODUCT} component={Product} />
         <Stack.Screen
           name={MenuUrl.CREATE_USER}
           component={CreateUser}

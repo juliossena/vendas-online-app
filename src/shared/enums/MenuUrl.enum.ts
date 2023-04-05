@@ -3,4 +3,7 @@ export enum MenuUrl {
   LOGIN = 'Login',
   HOME = 'Home',
   CREATE_USER = 'CreateUser',
+  ORDER = 'Order',
+  PROFILE = 'Profile',
+  PRODUCT = 'Product',
 }

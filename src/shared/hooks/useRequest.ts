@@ -12,11 +12,11 @@ import ConnectionAPI, {
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/returnLogin';
 
-interface requestProps<T> {
+interface requestProps<T, B = unknown> {
   url: string;
   method: MethodType;
   saveGlobal?: (object: T) => void;
-  body?: unknown;
+  body?: B;
   message?: string;
 }
 
@@ -27,15 +27,15 @@ export const useRequest = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
 
-  const request = async <T>({
+  const request = async <T, B = unknown>({
     url,
     method,
     saveGlobal,
     body,
     message,
-  }: requestProps<T>): Promise<T | undefined> => {
+  }: requestProps<T | undefined, B>): Promise<T | undefined> => {
     setLoading(true);
-    const returnObject: T | undefined = await ConnectionAPI.connect<T>(url, method, body)
+    const returnObject: T | undefined = await ConnectionAPI.connect<T, B>(url, method, body)
       .then((result) => {
         if (saveGlobal) {
           saveGlobal(result);

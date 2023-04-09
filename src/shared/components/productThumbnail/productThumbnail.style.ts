@@ -23,3 +23,18 @@ export const ProductImage = styled.Image`
 
   border-radius: 4px;
 `;
+
+export const ProductInsertCart = styled.TouchableOpacity`
+  width: 118px;
+  height: 32px;
+  background-color: ${theme.colors.mainTheme.primary};
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+`;

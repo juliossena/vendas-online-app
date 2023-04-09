@@ -1,9 +1,18 @@
+import { useNavigation } from '@react-navigation/native';
+
+import { ProductNavigationProp } from '../../../modules/product/screens/Product';
+import { MenuUrl } from '../../enums/MenuUrl.enum';
+import { convertNumberToMoney } from '../../functions/money';
 import { theme } from '../../themes/theme';
 import { ProductType } from '../../types/productType';
-import Button from '../button/Button';
+import { Icon } from '../icon/Icon';
 import Text from '../text/Text';
 import { textTypes } from '../text/textTypes';
-import { ProductImage, ProductThumbnailContainer } from './productThumbnail.style';
+import {
+  ProductImage,
+  ProductInsertCart,
+  ProductThumbnailContainer,
+} from './productThumbnail.style';
 
 interface ProductThumbnailProps {
   product: ProductType;
@@ -11,14 +20,24 @@ interface ProductThumbnailProps {
 }
 
 const ProductThumbnail = ({ product, margin }: ProductThumbnailProps) => {
+  const { navigate } = useNavigation<ProductNavigationProp>();
+
+  const handleGoToProduct = () => {
+    navigate(MenuUrl.PRODUCT, {
+      product,
+    });
+  };
+
   return (
-    <ProductThumbnailContainer margin={margin}>
+    <ProductThumbnailContainer onPress={handleGoToProduct} margin={margin}>
       <ProductImage source={{ uri: product.image }} />
       <Text type={textTypes.PARAGRAPH_SMALL_REGULAR}>{product.name}</Text>
-      <Text color={theme.colors.mainTheme.primary} type={textTypes.BUTTON_SEMI_BOLD}>
-        {product.price}
+      <Text color={theme.colors.mainTheme.primary} type={textTypes.PARAGRAPH_SEMI_BOLD}>
+        {convertNumberToMoney(product.price)}
       </Text>
-      <Button title="Inserir" />
+      <ProductInsertCart>
+        <Icon name="cart" color={theme.colors.neutralTheme.white} />
+      </ProductInsertCart>
     </ProductThumbnailContainer>
   );
 };

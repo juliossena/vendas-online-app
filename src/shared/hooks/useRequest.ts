@@ -33,7 +33,7 @@ export const useRequest = () => {
     saveGlobal,
     body,
     message,
-  }: requestProps<T | undefined, B>): Promise<T | undefined> => {
+  }: requestProps<T, B>): Promise<T | undefined> => {
     setLoading(true);
     const returnObject: T | undefined = await ConnectionAPI.connect<T, B>(url, method, body)
       .then((result) => {

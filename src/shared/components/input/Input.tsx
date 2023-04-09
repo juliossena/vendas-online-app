@@ -13,7 +13,7 @@ import { theme } from '../../themes/theme';
 import { DisplayFlexColumn } from '../globalStyles/globalView.style';
 import Text from '../text/Text';
 import { textTypes } from '../text/textTypes';
-import { ContainerInput, IconEye } from './input.style';
+import { ContainerInput, IconEye, IconSearch } from './input.style';
 
 interface InputProps extends TextInputProps {
   title?: string;
@@ -21,10 +21,25 @@ interface InputProps extends TextInputProps {
   secureTextEntry?: boolean;
   margin?: string;
   type?: 'cel-phone' | 'cpf';
+  iconRight?: string;
+  onPressIconRight?: () => void;
 }
 
 const Input = forwardRef<TextInput, InputProps>(
-  ({ margin, secureTextEntry, title, errorMessage, onChange, type, ...props }: InputProps, ref) => {
+  (
+    {
+      margin,
+      secureTextEntry,
+      title,
+      errorMessage,
+      onChange,
+      type,
+      iconRight,
+      onPressIconRight,
+      ...props
+    }: InputProps,
+    ref,
+  ) => {
     const [currentSecure, setCurrentSecure] = useState<boolean>(!!secureTextEntry);
 
     const handleOnChange = (event: NativeSyntheticEvent<TextInputChangeEventData>) => {
@@ -84,6 +99,7 @@ const Input = forwardRef<TextInput, InputProps>(
               size={20}
             />
           )}
+          {iconRight && <IconSearch name="search" size={14} onPress={onPressIconRight} />}
         </View>
         {errorMessage && (
           <Text

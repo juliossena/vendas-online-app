@@ -1,4 +1,4 @@
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import { FlatList, NativeSyntheticEvent, TextInputChangeEventData, View } from 'react-native';
 
@@ -11,11 +11,12 @@ import { MenuUrl } from '../../../shared/enums/MenuUrl.enum';
 import { useRequest } from '../../../shared/hooks/useRequest';
 import { ProductType } from '../../../shared/types/productType';
 import { useProductReducer } from '../../../store/reducers/productReducer/useProductReducer';
+import { SearchProductNavigationProp } from '../../searchProduct/screen/SearchProduct';
 import { HomeContainer } from '../styles/home.style';
 
 const Home = () => {
   const [search, setSearch] = useState('');
-  const { navigate } = useNavigation<NavigationProp<ParamListBase>>();
+  const { navigate } = useNavigation<SearchProductNavigationProp>();
   const { request } = useRequest();
   const { products, setProducts } = useProductReducer();
 
@@ -28,7 +29,9 @@ const Home = () => {
   }, []);
 
   const handleGoToProduct = () => {
-    navigate(MenuUrl.SEARCH_PRODUCT);
+    navigate(MenuUrl.SEARCH_PRODUCT, {
+      search,
+    });
   };
 
   const handleOnChangeSearch = (event: NativeSyntheticEvent<TextInputChangeEventData>) => {

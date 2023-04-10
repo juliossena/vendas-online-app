@@ -1,8 +1,11 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { NativeSyntheticEvent, ScrollView, TextInputChangeEventData } from 'react-native';
 
 import { MethodEnum } from '../../../enums/methods.enum';
+import Input from '../../../shared/components/input/Input';
+import ProductThumbnail from '../../../shared/components/productThumbnail/ProductThumbnail';
 import Text from '../../../shared/components/text/Text';
 import { URL_PRODUCT_PAGE } from '../../../shared/constants/urls';
 import { useRequest } from '../../../shared/hooks/useRequest';
@@ -21,20 +24,35 @@ export interface SearchProductParams {
 const SearchProduct = () => {
   const { searchProducts, setSearchProducts } = useProductReducer();
   const { params } = useRoute<RouteProp<Record<string, SearchProductParams>>>();
-  const { search } = params;
   const { request } = useRequest();
+  const [value, setValue] = useState(params?.search || '');
+
+  useEffect(() => {
+    setValue(params?.search || '');
+  }, [params]);
 
   useEffect(() => {
     request<PaginationType<ProductType[]>>({
-      url: `${URL_PRODUCT_PAGE}?search=${search}`,
+      url: `${URL_PRODUCT_PAGE}?search=${value}`,
       method: MethodEnum.GET,
       saveGlobal: setSearchProducts,
     });
-  }, [search]);
+  }, [value]);
+
+  const handleOnChangeInput = (event: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    setValue(event.nativeEvent.text);
+  };
 
   return (
     <>
-      {searchProducts && <Text>Tem produto</Text>}
+      <Input onChange={handleOnChangeInput} value={value} iconRight="search" />
+      {searchProducts && searchProducts.data && (
+        <ScrollView>
+          {searchProducts.data.map((product) => (
+            <ProductThumbnail product={product} />
+          ))}
+        </ScrollView>
+      )}
       <Text>Qualquer coisa</Text>
     </>
   );

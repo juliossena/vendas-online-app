@@ -18,6 +18,7 @@ import { theme } from '../../../shared/themes/theme';
 import { PaginationType } from '../../../shared/types/paginationType';
 import { ProductType } from '../../../shared/types/productType';
 import { useProductReducer } from '../../../store/reducers/productReducer/useProductReducer';
+import { SearchProductContainer, SearchProductScrollView } from '../styles/searchProduct.style';
 
 export type SearchProductNavigationProp = NativeStackNavigationProp<
   Record<string, SearchProductParams>
@@ -70,17 +71,19 @@ const SearchProduct = () => {
   };
 
   return (
-    <>
+    <SearchProductContainer>
       <Input onChange={handleOnChangeInput} value={value} iconRight="search" />
       {searchProducts && searchProducts.data && (
         <ScrollView onScroll={handleScroll}>
-          {searchProducts.data.map((product) => (
-            <ProductThumbnail product={product} />
-          ))}
+          <SearchProductScrollView>
+            {searchProducts.data.map((product) => (
+              <ProductThumbnail margin="4px 0px" product={product} />
+            ))}
+          </SearchProductScrollView>
         </ScrollView>
       )}
       {loading && <ActivityIndicatorButton color={theme.colors.mainTheme.primary} />}
-    </>
+    </SearchProductContainer>
   );
 };
 

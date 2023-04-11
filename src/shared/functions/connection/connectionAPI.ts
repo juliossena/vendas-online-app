@@ -8,7 +8,6 @@ export type MethodType = 'get' | 'delete' | 'post' | 'put' | 'patch';
 export default class ConnectionAPI {
   static async call<T, B = unknown>(url: string, method: MethodType, body?: B): Promise<T> {
     const token = await getAuthorizationToken();
-    console.log('url', url);
 
     const config: AxiosRequestConfig = {
       headers: {

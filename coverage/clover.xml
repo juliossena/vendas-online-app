@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681385619298" clover="3.2.0">
-  <project timestamp="1681385619299" name="All files">
-    <metrics statements="34" coveredstatements="32" conditionals="18" coveredconditionals="16" methods="7" coveredmethods="7" elements="59" coveredelements="55" complexity="0" loc="34" ncloc="34" packages="1" files="5" classes="5"/>
+<coverage generated="1681387437897" clover="3.2.0">
+  <project timestamp="1681387437897" name="All files">
+    <metrics statements="38" coveredstatements="36" conditionals="18" coveredconditionals="16" methods="11" coveredmethods="10" elements="67" coveredelements="62" complexity="0" loc="38" ncloc="38" packages="1" files="6" classes="6"/>
     <file name="characters.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/characters.ts">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="1" count="3" type="stmt"/>
@@ -50,6 +50,13 @@
       <line num="10" count="1" type="stmt"/>
       <line num="11" count="5" type="stmt"/>
       <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
+    </file>
+    <file name="storageProxy.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/storageProxy.ts">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

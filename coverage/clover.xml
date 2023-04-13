@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681384859075" clover="3.2.0">
-  <project timestamp="1681384859075" name="All files">
-    <metrics statements="26" coveredstatements="24" conditionals="14" coveredconditionals="12" methods="4" coveredmethods="4" elements="44" coveredelements="40" complexity="0" loc="26" ncloc="26" packages="1" files="3" classes="3"/>
+<coverage generated="1681385619298" clover="3.2.0">
+  <project timestamp="1681385619299" name="All files">
+    <metrics statements="34" coveredstatements="32" conditionals="18" coveredconditionals="16" methods="7" coveredmethods="7" elements="59" coveredelements="55" complexity="0" loc="34" ncloc="34" packages="1" files="5" classes="5"/>
     <file name="characters.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/characters.ts">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="2" type="stmt"/>
-      <line num="2" count="5" type="stmt"/>
+      <line num="1" count="3" type="stmt"/>
+      <line num="2" count="12" type="stmt"/>
     </file>
     <file name="cpf.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/cpf.ts">
       <metrics statements="22" coveredstatements="20" conditionals="14" coveredconditionals="12" methods="2" coveredmethods="2"/>
@@ -36,6 +36,20 @@
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="5" type="stmt"/>
+    </file>
+    <file name="money.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/money.ts">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="3" type="stmt"/>
+    </file>
+    <file name="phone.ts" path="/Users/juliosena/Work/vendas-online-app/src/shared/functions/phone.ts">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="11" count="5" type="stmt"/>
+      <line num="12" count="5" type="cond" truecount="2" falsecount="0"/>
     </file>
   </project>
 </coverage>

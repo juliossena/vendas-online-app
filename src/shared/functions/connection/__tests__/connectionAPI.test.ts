@@ -119,4 +119,19 @@ describe('ConnectionAPI', () => {
       );
     });
   });
+
+  describe('test call', () => {
+    it('should header send authorization', async () => {
+      const spyAxios = jest.spyOn(axios, 'get');
+
+      mockAxios.onGet(URL_CART).reply(200, mockReturnValue);
+
+      await ConnectionAPI.call(URL_CART, MethodEnum.GET);
+
+      expect(spyAxios.mock.calls[0][1]?.headers).toEqual({
+        Authorization: mockToken,
+        'Content-Type': 'application/json',
+      });
+    });
+  });
 });

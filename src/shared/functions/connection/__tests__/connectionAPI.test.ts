@@ -1,8 +1,11 @@
+/* eslint-disable jest/valid-expect */
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
+import { MethodEnum } from '../../../../enums/methods.enum';
+import { ERROR_ACCESS_DANIED, ERROR_CONNECTION } from '../../../constants/errosContants';
 import { URL_CART } from '../../../constants/urls';
-import {
+import ConnectionAPI, {
   connectionAPIDelete,
   connectionAPIGet,
   connectionAPIPatch,
@@ -80,6 +83,40 @@ describe('ConnectionAPI', () => {
       expect(returnPatch).toEqual(mockReturnValue);
       expect(spyAxios.mock.calls[0][0]).toEqual(URL_CART);
       expect(spyAxios.mock.calls[0][1]).toEqual(BODY_MOCK);
+    });
+  });
+
+  describe('connect', () => {
+    it('should return success', async () => {
+      mockAxios.onGet(URL_CART).reply(200, mockReturnValue);
+
+      const returnGet = await ConnectionAPI.connect(URL_CART, MethodEnum.GET);
+
+      expect(returnGet).toEqual(mockReturnValue);
+    });
+
+    it('should return error 401', async () => {
+      mockAxios.onGet(URL_CART).reply(401);
+
+      expect(ConnectionAPI.connect(URL_CART, MethodEnum.GET)).rejects.toThrowError(
+        Error(ERROR_ACCESS_DANIED),
+      );
+    });
+
+    it('should return error 403', async () => {
+      mockAxios.onGet(URL_CART).reply(403);
+
+      expect(ConnectionAPI.connect(URL_CART, MethodEnum.GET)).rejects.toThrowError(
+        Error(ERROR_ACCESS_DANIED),
+      );
+    });
+
+    it('should return error 400', async () => {
+      mockAxios.onGet(URL_CART).reply(400);
+
+      expect(ConnectionAPI.connect(URL_CART, MethodEnum.GET)).rejects.toThrowError(
+        Error(ERROR_CONNECTION),
+      );
     });
   });
 });

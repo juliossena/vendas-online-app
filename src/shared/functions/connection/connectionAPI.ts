@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 import { MethodEnum } from '../../../enums/methods.enum';
+import { ERROR_ACCESS_DANIED, ERROR_CONNECTION } from '../../constants/errosContants';
 import { getAuthorizationToken } from './auth';
 
 export type MethodType = 'get' | 'delete' | 'post' | 'put' | 'patch';
@@ -34,12 +35,12 @@ export default class ConnectionAPI {
         switch (error.response.status) {
           case 401:
           case 403:
-            throw new Error('Sem permissão');
+            throw new Error(ERROR_ACCESS_DANIED);
           default:
-            throw new Error('Sem conexão com o backend');
+            throw new Error(ERROR_CONNECTION);
         }
       }
-      throw new Error('Sem conexão com o backend');
+      throw new Error(ERROR_CONNECTION);
     });
   }
 }

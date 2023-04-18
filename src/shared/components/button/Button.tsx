@@ -30,7 +30,7 @@ const Button = ({ title, type, disabled, loading, margin, onPress, ...props }: B
 
   const renderText = (color: string) => (
     <>
-      <Text type={textTypes.BUTTON_SEMI_BOLD} color={color}>
+      <Text testID={buttonTestId.BUTTON_TITLE} type={textTypes.BUTTON_SEMI_BOLD} color={color}>
         {title}
       </Text>
       {loading && (
@@ -44,7 +44,7 @@ const Button = ({ title, type, disabled, loading, margin, onPress, ...props }: B
 
   if (disabled) {
     return (
-      <ButtonDisabled {...props} margin={margin}>
+      <ButtonDisabled testID={buttonTestId.BUTTON_DISABLED} {...props} margin={margin}>
         {renderText(theme.colors.neutralTheme.white)}
       </ButtonDisabled>
     );
@@ -53,14 +53,24 @@ const Button = ({ title, type, disabled, loading, margin, onPress, ...props }: B
   switch (type) {
     case theme.buttons.buttonsTheme.secondary:
       return (
-        <ButtonSecondary {...props} margin={margin} onPress={handleOnPress}>
+        <ButtonSecondary
+          testID={buttonTestId.BUTTON_SECONDARY}
+          {...props}
+          margin={margin}
+          onPress={handleOnPress}
+        >
           {renderText(theme.colors.mainTheme.primary)}
         </ButtonSecondary>
       );
     case theme.buttons.buttonsTheme.primary:
     default:
       return (
-        <ButtonContainer margin={margin} {...props} onPress={handleOnPress}>
+        <ButtonContainer
+          testID={buttonTestId.BUTTON_DEFAULT}
+          margin={margin}
+          {...props}
+          onPress={handleOnPress}
+        >
           <GradientButton
             start={{ x: 0.0, y: 0.0 }}
             end={{ x: 1.0, y: 1.0 }}

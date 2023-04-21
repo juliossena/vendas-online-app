@@ -12,18 +12,20 @@ import { validatePhone } from '../../../shared/functions/phone';
 import { useRequest } from '../../../shared/hooks/useRequest';
 import { CreateUserType } from '../../../shared/types/createUserType';
 
+export const DEFAULT_CREATE_USER = {
+  confirmPassword: '',
+  cpf: '',
+  email: '',
+  name: '',
+  password: '',
+  phone: '',
+};
+
 export const useCreateUser = () => {
   const { reset } = useNavigation<NavigationProp<ParamListBase>>();
   const { request, loading } = useRequest();
   const [disabled, setDisabled] = useState<boolean>(true);
-  const [createUser, setCreateUser] = useState<CreateUserType>({
-    confirmPassword: '',
-    cpf: '',
-    email: '',
-    name: '',
-    password: '',
-    phone: '',
-  });
+  const [createUser, setCreateUser] = useState<CreateUserType>(DEFAULT_CREATE_USER);
 
   useEffect(() => {
     if (

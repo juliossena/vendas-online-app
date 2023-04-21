@@ -1,9 +1,10 @@
-import { Alert, Modal as ModalReact, ModalProps as ModalPropsReact } from 'react-native';
+import { Modal as ModalReact, ModalProps as ModalPropsReact } from 'react-native';
 
 import { theme } from '../../themes/theme';
 import Button from '../button/Button';
 import Text from '../text/Text';
 import { textTypes } from '../text/textTypes';
+import { modalTestId } from './__mocks__/modal.testid';
 import { ContainerModal, IconCloseModal } from './modal.style';
 
 interface ModalProps extends ModalPropsReact {
@@ -14,22 +15,18 @@ interface ModalProps extends ModalPropsReact {
 
 const Modal = ({ title, text, onCloseModal, ...props }: ModalProps) => {
   return (
-    <ModalReact
-      animationType="slide"
-      transparent={true}
-      onRequestClose={() => {
-        Alert.alert('Modal has been closed.');
-        onCloseModal();
-      }}
-      {...props}
-    >
+    <ModalReact animationType="slide" transparent={true} onRequestClose={onCloseModal} {...props}>
       <ContainerModal>
-        <Text type={textTypes.PARAGRAPH_SEMI_BOLD} color={theme.colors.mainTheme.primary}>
+        <Text
+          testID={modalTestId.MODAL_TITLE}
+          type={textTypes.PARAGRAPH_SEMI_BOLD}
+          color={theme.colors.mainTheme.primary}
+        >
           {title}
         </Text>
-        <Text>{text}</Text>
-        <Button title="OK" onPress={onCloseModal} />
-        <IconCloseModal onPress={onCloseModal} name="cross" />
+        <Text testID={modalTestId.MODAL_TEXT}>{text}</Text>
+        <Button testID={modalTestId.MODAL_CLOSE_BUTTON} title="OK" onPress={onCloseModal} />
+        <IconCloseModal testID={modalTestId.MODAL_CLOSE_ICON} onPress={onCloseModal} name="cross" />
       </ContainerModal>
     </ModalReact>
   );
